@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  stock_service:
+    build: ./stock_service
+    ports:
+      - "5001:5001"
+    environment:
+      - API_KEY=${API_KEY}
+    networks:
+      - microservices_net
+
+  auth_service:
+    build: ./auth_service
+    ports:
+      - "5002:5002"
+    volumes:
+      - auth_db:/app
+    networks:
+      - microservices_net
+
+  api_gateway:
+    build: ./api_gateway
+    ports:
+      - "5000:5000"
+    depends_on:
+      - stock_service
+      - auth_service
+    networks:
+      - microservices_net
+
+networks:
+  microservices_net:
+    driver: bridge
+
+volumes:
+  auth_db:
