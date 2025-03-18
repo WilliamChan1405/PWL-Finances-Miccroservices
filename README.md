@@ -56,29 +56,26 @@ Proses migrasi melibatkan beberapa langkah:
 ## Struktur Proyek
 
 Struktur proyek telah diubah untuk mendukung arsitektur microservices. Berikut adalah gambaran umum struktur baru:
-
-microservices-project
-├── auth-service                      # Layanan Autentikasi
-│   ├── src
+```
+├── auth_service                      # Layanan Autentikasi
 │   ├── Dockerfile                    # Dockerfile untuk layanan Auth
 │   ├── requirements.txt              # Dependensi Python untuk layanan Auth
 │   └── auth_service.py               # Logika untuk layanan Auth
 │
-├── stock-service                     # Layanan Stock
-│   ├── src
+├── stock_service                     # Layanan Stock
+
 │   ├── Dockerfile                    # Dockerfile untuk layanan Stock
 │   ├── requirements.txt              # Dependensi Python untuk layanan Stock
 │   └── stock_services.py             # Logika untuk layanan Stock
 │
-├── api-gateway                       # API Gateway untuk mengelola komunikasi antar layanan
-│   ├── src
+├── api_gateway                       # API Gateway untuk mengelola komunikasi antar layanan
 │   ├── Dockerfile                    # Dockerfile untuk API Gateway
 │   ├── requirements.txt              # Dependensi Python untuk API Gateway
 │   └── api_gateway.py                # Logika untuk API Gateway
 │
 ├── docker-compose.yml                # Konfigurasi Docker Compose untuk menjalankan semua layanan
 └── README.md                         # Dokumentasi proyek
-
+```
 
 ---
 
